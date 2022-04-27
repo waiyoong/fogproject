@@ -26,8 +26,20 @@ sudo rm /opt/$3.tar.gz
 FILE=/opt/fog/.fogsettings
 if [ -f "$FILE" ]; then
    echo "$FILE exists."
-   printf "N\n\n" |  sudo /opt/fogproject-$3/bin/installfog.sh
+   printf "Y\n\n" |  sudo /opt/fogproject-$3/bin/installfog.sh
 else
    echo "$FILE does not exists."
 fi
+
+# Install packages required for PXEL into remote machine 
+declare -a pkgs=(sshpass)
+
+for package in "${pkgs[@]}"; do
+    dpkg -s "$package" >/dev/null 2>&1 && {
+        echo "$package is installed."
+    } || {
+        echo $package
+        sudo apt-get install $package
+    }
+done
 
