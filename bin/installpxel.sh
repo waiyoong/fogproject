@@ -5,7 +5,7 @@ sudo mkdir -p -- /PXEL/AzurePipeline/Logs/
 
 # Download latest fogproject's source code
 currDate="$(date +'%Y%m%d')"
-output="$(sudo wget -a /PXEL/AzurePipeline/Logs/${currDate}_wgetlog.txt $1/archive/$2.tar.gz -P /opt/)"
+output="$(sudo wget -a /PXEL/AzurePipeline/Logs/${currDate}_wgetlog.txt ${1%.*}/archive/$2.tar.gz -P /opt/)"
 
 if [[ $? -ne 0 ]] ; then
     echo "Failed to download FOG Project latest source code."
