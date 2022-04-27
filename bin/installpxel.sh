@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 
 # Create log directory
 sudo mkdir -p -- /PXEL/AzurePipeline/Logs/
