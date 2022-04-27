@@ -26,7 +26,7 @@ sudo rm /opt/$3.tar.gz
 FILE=/opt/fog/.fogsettings
 if [ -f "$FILE" ]; then
    echo "$FILE exists."
-   printf "Y\n\n" |  sudo /opt/fogproject-$3/bin/installfog.sh
+   printf "N\n\n" |  sudo /opt/fogproject-$3/bin/installfog.sh
 else
    echo "$FILE does not exists."
 fi
