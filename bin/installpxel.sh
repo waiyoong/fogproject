@@ -32,7 +32,7 @@ else
 fi
 
 # Install packages required for PXEL into remote machine 
-declare -a pkgs=(sshpass)
+declare -a pkgs=$4
 
 for package in "${pkgs[@]}"; do
     dpkg -s "$package" >/dev/null 2>&1 && {
